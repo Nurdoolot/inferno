@@ -1,0 +1,19 @@
+select * from developer where birthday > 1995 and sex = 'male';
+
+select id, name, surname, birthday, sex from manager
+union 
+select id, name, surname, birthday, sex from developer;
+
+
+select developer.name, developer.surname from developer join manager on developer.id_manager = manager.id where manager.name = 'Asel';
+
+
+select * from developer where birthday < 1995;
+
+
+select count(sex) from developer where sex = 'female' union  select count(sex) from developer where sex = 'male';
+
+select year(birthday) as year, count(name) as quantity from developer where birthday < 1995 group by birthday;
+
+
+select name from developer where sex = 'female' union select count(sex) from developer where sex = 'female';
